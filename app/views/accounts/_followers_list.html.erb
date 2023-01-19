@@ -1,0 +1,19 @@
+<% @following_accounts.each do |account| %>
+    <div class="recommended-follower">
+    <div class="row">
+        <div class="col-3">
+            <%= link_to image_tag(account.image.url, class: "thumb-image"), profile_path(account.username) %>
+        </div>
+        <div class="col-9 ">
+            <div class="d-flex flex-row">
+                <div class="followcard1">
+                    <%= link_to account.username, profile_path(account.username), class: "text-dark" %>
+                </div>
+        </div>
+    </div>
+ </div>
+<% end %>
+
+
+
+ 

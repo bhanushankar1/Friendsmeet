@@ -1,0 +1,10 @@
+
+<% if account_signed_in? %>
+<li class="nav-link active font-weight-bold" style="font-size: larger;">
+<strong><%= link_to "My Profile", profile_path(current_account.username), class: "nav-link" %></strong>
+</li>
+<li class="nav-link active font-weight-bold" style="font-size: larger;">
+<strong><%= link_to "Sign Out", destroy_account_session_path, method: :delete, class: "nav-link" %></strong>
+</li>
+<% end %>
+

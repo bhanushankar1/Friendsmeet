@@ -1,0 +1,39 @@
+<body>
+  <div style="max-width: 1000px; margin: 0 auto;">
+
+
+
+<h1 class="text-center font-weight-bold"><strong>Admin Dashboard</strong></h1>
+
+<div class="row">
+<div class="card text-bg-primary" style="margin: 27px 7px; max-width: 18rem;" >
+        <div class="card-header text-center font-weight-bold"><strong>Accounts Count</strong>
+        </div>
+        <div class="card-body">
+                <h5 class="card-title">
+                    <p>Total accounts created in Friendsmeet so far: <%= @total_accounts %></p>
+                </h5>
+        </div>
+</div>  
+<div class="card text-bg-success" style="margin: 27px 7px; max-width: 18rem;">
+        <div class="card-header text-center font-weight-bold"><strong>Accounts Online</strong>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+            <p>Accounts that are in online: <%= @online_accounts %></p>
+            </h5>
+        </div>
+</div>
+<div class="card text-bg-secondary" style="margin: 27px 7px; max-width: 18rem;">
+    <div class="card-header text-center font-weight-bold"><strong>Accounts Offline</strong>
+    </div>
+        <div class="card-body">
+            <h5 class="card-title">
+            <p>Accounts that are in offline: <%= @offline_accounts %></p>
+            </h5>
+         </div>
+</div>
+</div>
+
+</div>
+</body>   

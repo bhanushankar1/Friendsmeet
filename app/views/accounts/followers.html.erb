@@ -1,0 +1,93 @@
+<body>
+  <div style="max-width: 1000px; margin: 0 auto;">
+
+ <div class="account-summary" style="display: flex; justify-content: center;">
+    <p><%= link_to image_tag(current_account.image.url, class: "thumb-image"), profile_path(current_account.username) if current_account.image.present? %>
+    <strong><%= current_account.username %></strong>
+    </p>
+   
+</div>         
+
+<h1 class="account-summary" style="display: flex; justify-content: center;">Friends Dashboard</h1>
+
+<div class="container">
+<div class="row">
+    <div class="card text-bg-muted" style="margin: 27px 9px; max-width: 18rem; background-color: #E6F0CF;">
+        <div class="card-header text-center font-weight-bold"><strong>Suggestions</strong>
+        </div>
+       <% @follower_suggestions.each do |account|%>
+        <div class="recommended-follower">
+            <div class="row mt-2">
+                <div class="col-2">
+                    <%= link_to profile_picture(account, 40), profile_path(account.username) %>
+                </div>
+                <div class="col-10 ">
+                    <div class="d-flex flex-row">
+                        <div class="followcard">
+                            <%= link_to account.username, profile_path(account.username), class: "text-dark" %>
+                            <p><%= account.created_at > 2.day.ago ? "New to FM" : "Familiar with FM "%></p>
+                        </div>
+                        <div class="followbtn" style="float: right; padding-left: 30px;">
+                             <%= form_tag follow_account_path, method: :post do %>
+                            <%= hidden_field_tag :follow_id, account.id %>
+                            <%= submit_tag "Follow", class: "btn btn-info btn-sm" %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <% end %>
+    </div>
+
+
+    <div class="card text-bg-muted" style="margin: 27px 7px; max-width: 18rem; background-color: #D1DAF4;">
+        <div class="card-header text-center font-weight-bold"><strong>You Following by</strong>
+        </div>
+        <% @followers.each do |follower| %>
+            <div class="recommended-follower">
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <%= link_to image_tag(follower.image.url, class: "thumb-image"), profile_path(follower.username) %>
+                    </div>
+                    <div class="col-9 ">
+                        <div class="d-flex flex-row">
+                            <div class="followcard1">
+                                <%= link_to follower.username, profile_path(follower.username), class: "text-dark" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        <% end %>
+    </div>
+
+
+    <div class="card text-bg-muted" style="margin: 27px 7px; max-width: 18rem; background-color: #ECDBE4;">
+        <div class="card-header text-center font-weight-bold"><strong>You Following to</strong>
+        </div>
+        <% @following_accounts.each do |account| %>
+        <div class="recommended-follower">
+            <div class="row mt-2">
+                <div class="col-3">
+                     <%= link_to image_tag(account.image.url, class: "thumb-image"), profile_path(account.username) %>
+                </div>
+                <div class="col-9 ">
+                    <div class="d-flex flex-row">
+                        <div class="followcard1">
+                            <%= link_to account.username, profile_path(account.username), class: "text-dark" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+</div>
+
+
+  
+  </div>
+</body>            

@@ -1,0 +1,60 @@
+<center>
+<div class="card mb-3" style="max-width: 1000px;">
+<div class="row no-gutters">
+  <div class="col-md-6">
+    <img src="/assets/fm.jpg" width="800" height="450" class="card-img" alt="Bootstrap" >
+  </div>
+  <div class="col-md-6">
+    <div class="card-body">
+
+          <h3>Sign up</h3>
+
+
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="field">
+                <%= f.label :username %><br />
+                <%= f.text_field :username, autofocus: true %>
+              </div>
+
+              <div class="field">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name %>
+              </div>
+
+              <div class="field">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name %>
+              </div>
+
+              <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autocomplete: "email" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password" %>
+              </div>
+
+              <div class="field mb-2">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Sign up" %>
+              </div>
+            <% end %>
+
+            <%= render "devise/shared/links" %>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+</center>   
